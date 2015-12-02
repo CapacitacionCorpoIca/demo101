@@ -80,4 +80,13 @@
       } 
     ]
   );
+  //Directive
+   app.directive('myWorker', function() {
+    return {
+      scope:{
+        worker: '=model'
+      },
+      templateUrl: 'templates/my-worker.html'
+    };
+  });
  }());
