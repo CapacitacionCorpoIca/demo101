@@ -1,5 +1,5 @@
 <div>
-	{{ worker.name  }}
-	<img ng-src="img/{{ worker.image  }}">
-	{{ worker.job  }}
+	{{ worker.user.name.first  }} {{ worker.user.name.last  }}
+	<img ng-src="{{ worker.user.picture.medium  }}">
+	{{ worker.user.email  }}
 </div>

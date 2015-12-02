@@ -64,9 +64,9 @@
       	serviceWorker.getAll()
       	.then( complete );
 
-      	function complete( response ){
-      		console.log( response );
-      		//$scope.team = serviceWorker.getAll();
+      	function complete( data ){
+      		console.log( data );
+      		$scope.team = data;
       	}
         
       } 
