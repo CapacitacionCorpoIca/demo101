@@ -61,7 +61,14 @@
       'serviceWorker',
       function($scope, serviceWorker){
 
-        $scope.team = serviceWorker.getAll();
+      	serviceWorker.getAll()
+      	.then( complete );
+
+      	function complete( response ){
+      		console.log( response );
+      		//$scope.team = serviceWorker.getAll();
+      	}
+        
       } 
     ]
   );
@@ -75,26 +82,20 @@
     };
   });
   //Service
-	app.factory('serviceWorker', function() {
+	app.factory('serviceWorker', function($http, $q) {
 	  return {
 	  	getAll: function(){
-	  		return [
-          {
-            name: 'Nicolas',
-            job: "Hybrid Developer",
-            image: '1.png'
-          },
-          {
-            name: 'Ruben',
-            job: "Desing",
-            image: '2.png'
-          },
-          {
-            name: 'John',
-            job: "Back-end",
-            image: '3.png'
-          }
-        ];
+	  		return $http.get('http://api.randomuser.me/?results=20')
+	  			.then( complete )
+	  			.catch( falied );
+
+	  			function complete( response ){
+	  				return $q.when( response.data.results );
+	  			}
+
+	  			function falied( response ){
+	  				return $q.reject( response );
+	  			}
 	  	}
 	  }
 	});
