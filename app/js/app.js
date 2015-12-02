@@ -58,9 +58,27 @@
   app.controller("AboutController",
     [
       '$scope',
-      function($scope){
+      'serviceWorker',
+      function($scope, serviceWorker){
 
-        $scope.team = [
+        $scope.team = serviceWorker.getAll();
+      } 
+    ]
+  );
+  //Directive
+  app.directive('myWorker', function() {
+    return {
+      scope:{
+        worker: '=model'
+      },
+      templateUrl: 'templates/my-worker.html'
+    };
+  });
+  //Service
+	app.factory('serviceWorker', function() {
+	  return {
+	  	getAll: function(){
+	  		return [
           {
             name: 'Nicolas',
             job: "Hybrid Developer",
@@ -77,16 +95,7 @@
             image: '3.png'
           }
         ];
-      } 
-    ]
-  );
-  //Directive
-   app.directive('myWorker', function() {
-    return {
-      scope:{
-        worker: '=model'
-      },
-      templateUrl: 'templates/my-worker.html'
-    };
-  });
+	  	}
+	  }
+	});
  }());
