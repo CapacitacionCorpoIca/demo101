@@ -18,3 +18,8 @@
 - [Dependency Injection](https://docs.angularjs.org/tutorial/step_05)
 - [Routing](https://docs.angularjs.org/tutorial/step_07)
 - [REST and Web Service](https://docs.angularjs.org/tutorial/step_11) 
+
+## Requirements
+- [node](https://nodejs.org/en/)
+- [bower](http://bower.io/)
+- [http-server](https://www.npmjs.com/package/http-server)
