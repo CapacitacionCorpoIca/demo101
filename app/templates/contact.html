@@ -1,1 +1,54 @@
-<h2>Contact page</h2>
+<form ng-submit="sendMail()" name="FormContact" novalidate>
+  <p>
+    <label>
+      <input 
+      type="text" 
+      name="name" 
+      ng-model="contact.name"
+      placeholder="Su nombre" 
+      ng-minlength="5"
+      ng-maxlength="20"  
+      required />
+    </label>
+    <div ng-messages="FormContact.name.$error" style="color:maroon">
+      <div ng-message="required">es requerido</div>
+      <div ng-message="minlength">Mur cortoo</div>
+      <div ng-message="maxlength">Muy largooo</div>
+    </div>
+  </p>
+  <p>
+    <label>
+      <textarea 
+      placeholder="Message" 
+      name="message"
+      ng-model="contact.message"
+      required></textarea>
+      <div ng-messages="FormContact.message.$error" style="color:maroon">
+        <div ng-message="required">es requerido</div>
+      </div>
+    </label>
+  </p>
+  <p>
+    <label>
+      <input 
+      type="number" 
+      name="age"
+      ng-model="contact.age"
+      placeholder="age" 
+      required>
+      <div ng-messages="FormContact.age.$error" style="color:maroon">
+        <div ng-message="required">es requerido</div>
+      </div>
+    </label>
+  </p>
+  <p>
+    <label>
+      Agree: 
+      <input 
+      type="checkbox" 
+      ng-model="contact.agree"
+      required>
+    </label>
+  </p>
+  <button type="submit" ng-disabled="FormContact.$invalid">Send</button>
+</form>

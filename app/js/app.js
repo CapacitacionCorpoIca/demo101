@@ -3,6 +3,7 @@
   //App
   var app = angular.module("HelloWorldApp", [
   	'ngRoute',
+  	'ngMessages'
   ]);
   //Routes
   app.config(function($routeProvider) {
@@ -17,6 +18,7 @@
 
     $routeProvider.when("/contact", {
       templateUrl: 'templates/contact.html',
+      controller: 'ContactController'
     });
 
   });
@@ -32,6 +34,21 @@
 
         $scope.calc = function(){
           $scope.total = ($scope.numberA + $scope.numberB) * 2;
+        }
+      } 
+    ]
+  );
+  //Controller
+  app.controller("ContactController",
+    [
+      '$scope',
+      function($scope){
+
+        $scope.contact = {};
+        $scope.sendMail = sendMail;
+
+        function sendMail(){
+          console.log($scope.contact);
         }
       } 
     ]
