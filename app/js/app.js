@@ -14,6 +14,7 @@
 
     $routeProvider.when("/about", {
       templateUrl: 'templates/about.html',
+      controller: 'AboutController'
     });
 
     $routeProvider.when("/contact", {
@@ -50,6 +51,32 @@
         function sendMail(){
           console.log($scope.contact);
         }
+      } 
+    ]
+  );
+  //Controller
+  app.controller("AboutController",
+    [
+      '$scope',
+      function($scope){
+
+        $scope.team = [
+          {
+            name: 'Nicolas',
+            job: "Hybrid Developer",
+            image: '1.png'
+          },
+          {
+            name: 'Ruben',
+            job: "Desing",
+            image: '2.png'
+          },
+          {
+            name: 'John',
+            job: "Back-end",
+            image: '3.png'
+          }
+        ];
       } 
     ]
   );
