@@ -1,11 +1,13 @@
 # demo101
-## Overview Day 1 (Angular Js)
+## Overview Day 1 and Day 2 (Angular Js)
 - Controllers
 - Data binding
 - Directives
 - Routing
 - Services
 - Fileters
+
+## [DEMO](http://capacitacioncorpoica.github.io/demo101/)
 
 ## Links
 - https://angularjs.org/
